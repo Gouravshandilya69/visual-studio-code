@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%=hello%>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<link rel="stylesheet" href="../public/stylesheets/style.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+<body>
+  <div id="main">
+    <div id="nav">
+      <h1>Visual Studio Code</h1>
+    </div>
+    <div id="main2">
+      <div id="left-container">
+        <div id="forgap">
+          <div id="lefticons">
+            <i id="create-file" class="ri-file-edit-line"></i>
+            <i id="create-folder" class="ri-folder-add-line"></i>
+            <a href="/"><i class="ri-restart-line"></i></a>
+
+          </div>
+          <div id="form">
+            <form id="form1" class="form69" action="/fileroute">
+              <input type="text" name="filename" placeholder="enter the name of the file">
+            </form>
+            <form id="form2" class="form69" action="/folderroute">
+              <input type="text" name="foldername" placeholder="enter the name of the folder">
+            </form>
+          </div>
+          <%files.forEach(function(file){%>
+            <%if(file.isfile===true){%>
+              <div id="filename">
+                <div id="filename-logo"><i class="ri-file-text-line"></i></div>
+                <div id="title">
+                  <a href="/open/<%=file.name%>"><small>
+                    <%=file.name%>
+                  </small></a>
+                </div>
+                <a href="/delete/<%=file.name%>"><i class="ri-delete-bin-line"></i></a>
+              </div>
+              <%}else{%>
+                <div id="filename">
+                  <div id="filename-logo"><i class="ri-folder-add-line"></i></div>
+                  <div id="title">
+                    <small>
+                      <%=file.name%>
+                    </small>
+                  </div>
+                  <a href="/deletefolder/<%=file.name%>"><i class="ri-delete-bin-line"></i></a>
+                </div>
+                <%}%>
+                  <%})%>
+
+        </div>
+      </div>
+      <div id="main-container">
+        <div id="filenamehead">
+          <div id="acctual">
+            <div id="filenameandall"> <i class="ri-file-edit-line"></i>
+                <h3><%=hello%></h3></div>
+           
+            <div id="close"><a href="/"><i class="ri-close-fill"></i></a></div>
+        </div>
+        </div>
+        <div id="textarea">
+            <textarea placeholder="Write Here" name="peragraph"  > <%=newdata%>  </textarea>
+        
+
+        </div>
+
+      </div>
+    </div>
+
+    <script src="../javascripts/script.js"></script>
+</body>
+
+</html>
